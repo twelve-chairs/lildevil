@@ -12,14 +12,16 @@
 Clone this repository
 
   `git clone https://github.com/twelvechairssoftware/lildevil.git`
+  
+  `cd lildevil`
 
 Set appropriate Qt paths in CMakeLists.txt, then:
 
  - OSX
  
-      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" <PROJECT_PATH>`
+      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
-      `cmake --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil -- -j 2`
+      `cmake --build ./cmake-build-minsizerel --target lilDevil -- -j 2`
  
  - Windows
  
@@ -33,7 +35,9 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       
       `dnf -y install gcc-c++ cmake qt5`
       
-      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" <PROJECT_PATH>`
+      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
-      `cmake --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil -- -j 2`
+      `cmake --build ./cmake-build-minsizerel --target lilDevil -- -j 2`
+      
+      ` ./bin/lilDevil`
 

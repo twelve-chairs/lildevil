@@ -21,12 +21,12 @@ Set appropriate Qt paths in CMakeLists.txt, then:
  
  - Linux:
  
-      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "" <PROJECT_PATH>`
+      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" <PROJECT_PATH>`
  
       `cmake --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil -- -j 2`
 
  - Windows:
  
-      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "" <PROJECT_PATH>`
+      `cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" <PROJECT_PATH>`
 
-      `cmake --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil -- -j 2`
+      `cmake.exe --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil --`

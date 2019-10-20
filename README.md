@@ -11,6 +11,8 @@
 #### Build
 Clone this repository
 
+      `git clone https://github.com/twelvechairssoftware/lildevil.git`
+
 Set appropriate Qt paths in CMakeLists.txt, then:
 
  - OSX
@@ -29,7 +31,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
  
       `dnf -y groupinstall "Development Tools"`
       
-      `dnf -y install gcc-c++`
+      `dnf -y install gcc-c++ cmake qt5`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" <PROJECT_PATH>`
  

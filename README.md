@@ -4,9 +4,9 @@
 
 #### Prerequisites
  - Qt 5.13+ (https://www.qt.io/download-qt-installer)
- - OSX: cmake and clang compiler
+ - OSX: `cmake` and `clang` compiler
  - Windows: Visual Studio 12+ (VS2017)
- - Linux: cmake and Qt-compatible C++ compiler
+ - Linux: `cmake` and `gcc-c++` compiler
  
 #### Build
 Clone this repository

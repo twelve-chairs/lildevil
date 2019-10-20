@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 9/29/19.
-//
-
 #include "jiraissue.h"
 #include <iostream>
 

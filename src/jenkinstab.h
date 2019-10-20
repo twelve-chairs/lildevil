@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 10/8/19.
-//
-
 #ifndef LILDEVIL_JENKINSTAB_H
 #define LILDEVIL_JENKINSTAB_H
 

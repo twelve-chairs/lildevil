@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 10/7/19.
-//
-
 #ifndef LILDEVIL_MAIN_H
 #define LILDEVIL_MAIN_H
 

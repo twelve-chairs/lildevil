@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 10/8/19.
-//
-
 #include "jenkinstab.h"
 
 JenkinsTab::JenkinsTab(QWidget *parent) : QWidget(parent){

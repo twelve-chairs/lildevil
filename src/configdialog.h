@@ -1,11 +1,8 @@
-//
-// Created by VokamisAir on 9/29/19.
-//
-
 #ifndef lildevil_CONFIGDIALOG_H
 #define lildevil_CONFIGDIALOG_H
 
 #import <QSettings>
+#import <QButtonGroup>
 #include "mainwindow.h"
 
 class ConfigTab : public QWidget

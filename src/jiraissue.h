@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 9/29/19.
-//
-
 #ifndef lildevil_JIRAISSUE_H
 #define lildevil_JIRAISSUE_H
 

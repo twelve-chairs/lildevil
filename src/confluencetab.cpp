@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 9/29/19.
-//
-
 #include "confluencetab.h"
 
 ConfluenceTab::ConfluenceTab(QWidget *parent) : QWidget(parent) {

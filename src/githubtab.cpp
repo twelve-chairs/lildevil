@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 9/29/19.
-//
-
 #include "githubtab.h"
 
 GithubTab::GithubTab(QWidget *parent) : QWidget(parent){

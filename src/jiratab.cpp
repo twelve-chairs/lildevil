@@ -1,7 +1,3 @@
-//
-// Created by VokamisAir on 9/29/19.
-//
-
 #include "jiratab.h"
 
 JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
@@ -30,7 +26,7 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 
     auto *topLeftCollection = new QWidget();
     auto topLeftVlayout = new QHBoxLayout();
-    auto *epicLabel = new QLabel("Epic:");
+    auto *epicLabel = new QLabel("Epic");
     epicLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     topLeftVlayout->addWidget(epicLabel);
     selectEpic = new QComboBox;
@@ -40,7 +36,7 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 
     auto *bottomRightCollection = new QWidget;
     auto bottomRightVlayout = new QHBoxLayout();
-    auto *weightLabel = new QLabel("Weight:");
+    auto *weightLabel = new QLabel("Weight");
     weightLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     bottomRightVlayout->addWidget(weightLabel, 1);
     selectWeight = new QComboBox;
@@ -50,8 +46,11 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 
     auto *bottomLeftCollection = new QWidget;
     auto bottomLeftVlayout = new QHBoxLayout();
+    auto *summaryLabel = new QLabel("* Summary");
+    summaryLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    bottomLeftVlayout->addWidget(summaryLabel);
     issueTitle = new QLineEdit();
-    issueTitle->setPlaceholderText("Please enter an issue title");
+    issueTitle->setPlaceholderText("required");
     connect(issueTitle,
             SIGNAL(textChanged(QString)),
             this,
@@ -63,7 +62,7 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 
     auto *middleLeftCollection = new QWidget;
     auto middleLeftVlayout = new QVBoxLayout();
-    auto *issueDescriptionLabel = new QLabel(tr("* Description:"));
+    auto *issueDescriptionLabel = new QLabel(tr("* Description"));
     middleLeftVlayout->addWidget(issueDescriptionLabel);
     issueDescription = new QPlainTextEdit();
     middleLeftVlayout->addWidget(issueDescription, 1);

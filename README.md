@@ -19,11 +19,15 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - OSX
  
+      `xcode-select --install`
+      
       `brew install cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
       `cmake --build ./cmake-build-minsizerel --target lilDevil -- -j 2`
+      
+      `./bin/lilDevil`
  
  - Windows
  
@@ -37,7 +41,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
  
       `dnf -y groupinstall "Development Tools"`
       
-      `dnf -y install gcc-c++ cmake qt5`
+      `dnf -y install gcc-c++ cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  

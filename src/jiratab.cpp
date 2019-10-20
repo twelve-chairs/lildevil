@@ -30,7 +30,7 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
     epicLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     topLeftVlayout->addWidget(epicLabel);
     selectEpic = new QComboBox;
-    topLeftVlayout->addWidget(selectEpic);
+    topLeftVlayout->addWidget(selectEpic, 1);
     topLeftCollection->setLayout(topLeftVlayout);
     mainLayout->addWidget(topLeftCollection, 0, 0);
 
@@ -38,7 +38,7 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
     auto bottomRightVlayout = new QHBoxLayout();
     auto *weightLabel = new QLabel("Weight");
     weightLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    bottomRightVlayout->addWidget(weightLabel, 1);
+    bottomRightVlayout->addWidget(weightLabel);
     selectWeight = new QComboBox;
     bottomRightVlayout->addWidget(selectWeight, 1);
     bottomRightCollection->setLayout(bottomRightVlayout);

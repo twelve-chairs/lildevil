@@ -11,7 +11,7 @@
 #### Build
 Clone this repository
 
-      `git clone https://github.com/twelvechairssoftware/lildevil.git`
+  `git clone https://github.com/twelvechairssoftware/lildevil.git`
 
 Set appropriate Qt paths in CMakeLists.txt, then:
 

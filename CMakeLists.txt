@@ -33,17 +33,20 @@ endif()
 find_package(Qt5Widgets REQUIRED)
 
 add_project_meta(META_FILES_TO_INCLUDE)
-set(RESOURCE_FILES ${PROJECT_NAME}.qrc src/main.h src/jenkinstab.cpp src/jenkinstab.h)
+set(RESOURCE_FILES ${PROJECT_NAME}.qrc)
 
 add_executable(${PROJECT_NAME}
         ${OS_BUNDLE}
         src/main.cpp
+        src/main.h
         src/mainwindow.cpp
         src/mainwindow.h
         src/jiratab.cpp
         src/jiratab.h
         src/githubtab.cpp
         src/githubtab.h
+        src/jenkinstab.cpp
+        src/jenkinstab.h
         src/configdialog.cpp
         src/configdialog.h
         src/confluencetab.cpp

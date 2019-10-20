@@ -1,5 +1,5 @@
 ## lilDevil
-### Developer productivity tools
+### Cross-platform developer tools productivity workstation
 
 
 #### Prerequisites

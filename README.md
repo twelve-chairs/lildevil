@@ -4,8 +4,8 @@
 
 #### Prerequisites
  - Qt 5.13+ (https://www.qt.io/download-qt-installer)
- - OSX: `cmake` and `clang` compiler
- - Windows: Visual Studio 12+ (VS2017)
+ - OSX: `cmake`, `clang` compiler, `brew` (https://brew.sh)
+ - Windows: Visual Studio 12+ (VS2017), `cmake`, `chocolatey` (https://chocolatey.org/install)
  - Linux: `cmake` and `gcc-c++` compiler
  
 #### Build

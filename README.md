@@ -40,7 +40,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
        
       `dnf groupinstall "Development Tools"`
       
-      `dnf install gcc-c++ cmake`
+      `dnf install gcc-c++ cmake qt5`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
@@ -50,7 +50,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - Linux (Debian)
              
-      `apt-get install build-essential git cmake`
+      `apt-get install build-essential git cmake qt5-default`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  

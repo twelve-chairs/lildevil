@@ -17,7 +17,7 @@ set(IDENTIFIER "com.twelvechairs-software.lildevil")
 set(LICENSE "MIT")
 
 if (APPLE)
-    set(CMAKE_PREFIX_PATH "/Applications/QtCreator/5.13.0/clang_64")
+    set(CMAKE_PREFIX_PATH "/usr/local/opt/qt")
 elseif (WIN32)
     set(WIN32QT "C:/Qt/5.13.1/msvc2017")
     set(CMAKE_PREFIX_PATH ${WIN32QT})

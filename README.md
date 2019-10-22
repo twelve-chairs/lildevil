@@ -26,7 +26,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       
       `./bin/lilDevil`
  
- - Windows
+ - Windows (very architecture-specific)
  
       `chocolatey install cmake qtcreator`
       

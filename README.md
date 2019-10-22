@@ -39,6 +39,8 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - Linux (Fedora)
  
+      `dnf -y update`
+      
       `dnf -y groupinstall "Development Tools"`
       
       `dnf -y install gcc-c++ cmake`
@@ -49,3 +51,14 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       
       `./bin/lilDevil`
 
+ - Linux (Ubuntu)
+ 
+      `apt-get -y update`
+            
+      `apt-get -y install build-essential gcc-c++ cmake`
+      
+      `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
+ 
+      `cmake --build ./cmake-build-minsizerel --target lilDevil -- -j 2`
+      
+      `./bin/lilDevil`

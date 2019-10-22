@@ -28,7 +28,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
  
  - Windows
  
-      `chocolatey install -y cmake`
+      `chocolatey install cmake`
       
       `cmake.exe -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - NMake Makefiles" <PROJECT_PATH>`
 
@@ -38,9 +38,9 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - Linux (RHEL)
        
-      `dnf -y groupinstall "Development Tools"`
+      `dnf groupinstall "Development Tools"`
       
-      `dnf -y install gcc-c++ cmake`
+      `dnf install gcc-c++ cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
@@ -50,7 +50,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - Linux (Debian)
              
-      `apt-get -y install build-essential git cmake`
+      `apt-get install build-essential git cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  

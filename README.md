@@ -18,7 +18,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - OSX
        
-      `brew install cmake`
+      `brew install cmake qt`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
@@ -28,7 +28,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
  
  - Windows
  
-      `chocolatey install cmake`
+      `chocolatey install cmake qtcreator`
       
       `cmake.exe -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - NMake Makefiles" <PROJECT_PATH>`
 

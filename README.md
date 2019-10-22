@@ -4,8 +4,8 @@
 
 #### Prerequisites
  - Qt 5.13+ (https://www.qt.io/download-qt-installer)
- - OSX: [`brew`](https://brew.sh), `cmake`, `clang` 
- - Windows: [`chocolatey`](https://chocolatey.org/install), `cmake`, Visual Studio 12+ (VS2017)
+ - OSX: [`brew`](https://brew.sh), `cmake`, Xcode (`xcode-select --install`)
+ - Windows: [`chocolatey`](https://chocolatey.org/install), `cmake`, [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
  
 #### Build
 Clone this repository
@@ -17,9 +17,7 @@ Clone this repository
 Set appropriate Qt paths in CMakeLists.txt, then:
 
  - OSX
- 
-      `xcode-select --install`
-      
+       
       `brew install cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
@@ -37,9 +35,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       `cmake.exe --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil --`
 
  - Linux (RHEL)
- 
-      `dnf -y update`
-      
+       
       `dnf -y groupinstall "Development Tools"`
       
       `dnf -y install gcc-c++ cmake`
@@ -51,9 +47,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       `./bin/lilDevil`
 
  - Linux (Debian)
- 
-      `apt-get -y update`
-            
+             
       `apt-get -y install build-essential gcc-c++ cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`

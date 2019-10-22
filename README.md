@@ -33,6 +33,8 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       `cmake.exe -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - NMake Makefiles" <PROJECT_PATH>`
 
       `cmake.exe --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil --`
+      
+      `bin\lilDevil.exe`
 
  - Linux (RHEL)
        

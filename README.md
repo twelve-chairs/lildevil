@@ -4,9 +4,8 @@
 
 #### Prerequisites
  - Qt 5.13+ (https://www.qt.io/download-qt-installer)
- - OSX: `cmake`, `clang` compiler, `brew` (https://brew.sh)
- - Windows: Visual Studio 12+ (VS2017), `cmake`, `chocolatey` (https://chocolatey.org/install)
- - Linux: `cmake` and `gcc-c++` compiler
+ - OSX: [`brew`](https://brew.sh), `cmake`, `clang` 
+ - Windows: [`chocolatey`](https://chocolatey.org/install), `cmake`, Visual Studio 12+ (VS2017)
  
 #### Build
 Clone this repository
@@ -37,7 +36,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
       `cmake.exe --build <PROJECT_PATH>/cmake-build-minsizerel --target lilDevil --`
 
- - Linux (Fedora)
+ - Linux (RHEL)
  
       `dnf -y update`
       
@@ -51,7 +50,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       
       `./bin/lilDevil`
 
- - Linux (Ubuntu)
+ - Linux (Debian)
  
       `apt-get -y update`
             

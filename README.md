@@ -54,6 +54,6 @@ Set appropriate Qt paths in CMakeLists.txt, then:
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  
-      `cmake --build ./cmake-build-minsizerel --target lilDevil -- -j 2`
+      `cmake --build . --target lilDevil -- -j 2`
       
       `./bin/lilDevil`

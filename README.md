@@ -50,7 +50,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
 
  - Linux (Debian)
              
-      `apt-get -y install build-essential gcc-c++ cmake`
+      `apt-get -y install build-essential git cmake`
       
       `cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .`
  

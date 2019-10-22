@@ -1,8 +1,8 @@
 #ifndef lildevil_CONFIGDIALOG_H
 #define lildevil_CONFIGDIALOG_H
 
-#import <QSettings>
-#import <QButtonGroup>
+#include <QSettings>
+#include <QButtonGroup>
 #include "mainwindow.h"
 
 class ConfigTab : public QWidget

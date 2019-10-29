@@ -28,7 +28,7 @@ Set appropriate Qt paths in CMakeLists.txt, then:
  
  - Windows (very architecture-specific)
  
-      `chocolatey install cmake qtcreator`
+      `choco install cmake qtcreator`
       
       `cmake.exe -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - NMake Makefiles" <PROJECT_PATH>`
 

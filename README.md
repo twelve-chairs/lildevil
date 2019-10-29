@@ -3,9 +3,9 @@
 
 
 #### Prerequisites
- - Qt 5.13+ (https://www.qt.io/download-qt-installer)
  - OSX: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)
- - Windows: [`chocolatey`](https://chocolatey.org/install), [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
+ - Windows: [`choco`](https://chocolatey.org/install), [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
+ - (sometimes) Qt 5.13+ (https://www.qt.io/download-qt-installer)
  
 #### Build
 Clone this repository

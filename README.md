@@ -16,7 +16,7 @@ Clone this repository
 
 Set appropriate Qt paths in CMakeLists.txt, then:
 
- - OSX
+ - MacOS
        
       `brew install cmake qt`
       

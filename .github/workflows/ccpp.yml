@@ -10,11 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       
-    - name: apt-get install build-essential git cmake qt5-default
     - run: apt-get install build-essential git cmake qt5-default
 
-    - name: cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
     - run: cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
 
-    - name: cmake --build . --target lilDevil -- -j 2
     - run: cmake --build . --target lilDevil -- -j 2

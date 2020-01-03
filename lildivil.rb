@@ -1,8 +1,7 @@
 class LilDevil < Formula
   desc "The Dev Tools Dashboard"
   homepage "https://gitlab.com/twelvechairssoftware/lildevil"
-  version ""
-  sha256 ""
+  version "0.0.1"
 
   url "https://gitlab.com/twelvechairssoftware/lildevil/dist/homebrew", :using => :curl
 

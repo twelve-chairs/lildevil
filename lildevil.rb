@@ -1,4 +1,4 @@
-class LilDevil < Formula
+class Lildevil < Formula
   desc "The Dev Tools Dashboard"
   homepage "https://gitlab.com/twelvechairssoftware/lildevil"
   version "0.0.1"

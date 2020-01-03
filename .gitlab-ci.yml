@@ -7,8 +7,8 @@ build:
   script:
      - cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
      - cmake --build . --target lilDevil -- -j 2
-     - ls -la
-     - zip lildevil.zip /dist/snap/lilDevil
+     - cd /dist/snap
+     - zip lildevil.zip lilDevil
   artifacts:
     paths:
       - dist/snap/

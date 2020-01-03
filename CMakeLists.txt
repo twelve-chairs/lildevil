@@ -27,8 +27,10 @@ elseif (WIN32)
         file(COPY ${WIN32QT}/bin/Qt5${DLL}.dll
                 DESTINATION ${CMAKE_BINARY_DIR})
     endforeach()
+
 else()
     set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/dist/snap)
+
 endif()
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
@@ -45,18 +47,18 @@ add_executable(${PROJECT_NAME}
         src/main.h
         src/mainwindow.cpp
         src/mainwindow.h
-        src/jiratab.cpp
-        src/jiratab.h
-        src/githubtab.cpp
-        src/githubtab.h
-        src/jenkinstab.cpp
-        src/jenkinstab.h
         src/configdialog.cpp
         src/configdialog.h
+        src/jiratab.cpp
+        src/jiratab.h
         src/confluencetab.cpp
         src/confluencetab.h
         src/jiraissue.cpp
         src/jiraissue.h
+        src/githubtab.cpp
+        src/githubtab.h
+        src/jenkinstab.cpp
+        src/jenkinstab.h
         ${META_FILES_TO_INCLUDE}
         ${RESOURCE_FILES}
         )

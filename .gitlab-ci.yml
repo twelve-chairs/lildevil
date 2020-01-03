@@ -7,10 +7,10 @@ build:
   script:
      - cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
      - cmake --build . --target lilDevil -- -j 2
-    
+     - zip lildevil.zip -r /dist/snap/lilDevil*
   artifacts:
     paths:
-      - bin
+      - dist/snap/
     #   depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
     #   cache:
         #  paths:

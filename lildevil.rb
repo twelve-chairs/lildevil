@@ -1,11 +1,10 @@
-class Lildevil < Formula
-  desc "The Dev Tools Dashboard"
-  homepage "https://gitlab.com/twelvechairssoftware/lildevil"
-  version "0.0.1"
+cask 'lildevil' do
+  version ':latest'
+  sha256 ':no_check'
 
-  url "https://gitlab.com/twelvechairssoftware/lildevil/dist/homebrew", :using => :curl
+  url "https://"
+  name 'lildevil'
+  homepage ''
 
-  def install
-    bin.install "twelvechairssoftware/lildevil"
-  end
+  app 'lilDevil.app'
 end

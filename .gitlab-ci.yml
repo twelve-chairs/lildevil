@@ -3,11 +3,11 @@ image: gcc
 build:
   stage: build
   before_script:
-     - apt update && apt -y install build-essential cmake qt5-default
+     - apt update && apt -y install build-essential zip cmake qt5-default
   script:
      - cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
      - cmake --build . --target lilDevil -- -j 2
-     - zip lildevil.zip -r /dist/snap/lilDevil*
+     - zip lildevil.zip -r /dist/snap/lilDevil
   artifacts:
     paths:
       - dist/snap/

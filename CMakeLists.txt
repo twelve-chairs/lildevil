@@ -2,23 +2,22 @@ cmake_minimum_required(VERSION 3.1.0)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;MinSizeRel" CACHE STRING "" FORCE)
 
-set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
-set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
-
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(QtCommon)
 
 project(lilDevil)
 
 set(COMPANY "Twelve Chairs Software, LLC")
-set(COPYRIGHT "Copyright (c) 2019 Twelve Chairs Software, LLC. All rights reserved.")
+set(COPYRIGHT "Copyright (c) 2020 Twelve Chairs Software, LLC. All rights reserved.")
 set(IDENTIFIER "com.twelvechairs-software.lildevil")
 set(LICENSE "MIT")
 
 if (APPLE)
+    set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/dist/homebrew)
     set(CMAKE_PREFIX_PATH "/usr/local/opt/qt")
+
 elseif (WIN32)
+    set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/dist/choco)
     set(WIN32QT "C:/Qt/5.13.1/msvc2017")
     set(CMAKE_PREFIX_PATH ${WIN32QT})
     set(DLLLIST "Widgets;Concurrent;Gui;Network")
@@ -28,7 +27,12 @@ elseif (WIN32)
         file(COPY ${WIN32QT}/bin/Qt5${DLL}.dll
                 DESTINATION ${CMAKE_BINARY_DIR})
     endforeach()
+else()
+    set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/dist/snap)
 endif()
+
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 find_package(Qt5Widgets REQUIRED)
 

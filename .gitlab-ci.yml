@@ -9,19 +9,21 @@ build:
   # instead of calling g++ directly you can also use some build toolkit like make
   # install the necessary build tools when needed
   # before_script:
-  #   - apt update && apt -y install make autoconf
+     - apt update && apt -y install build-essential cmake qt5-default
   script:
-    - g++ helloworld.cpp -o mybinary
-  artifacts:
-    paths:
-      - mybinary
+    #- g++ helloworld.cpp -o mybinary
+    - cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
+    - cmake --build . --target lilDevil -- -j 2
+#   artifacts:
+    # paths:
+    #   - mybinary
       # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
       # cache:
       #   paths:
       #     - "*.o"
 
 # run tests using the binary built before
-test:
-  stage: test
-  script:
-    - ./runmytests.sh
+#test:
+#  stage: test
+#  script:
+#    - ./runmytests.sh

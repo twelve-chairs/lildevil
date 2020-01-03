@@ -8,8 +8,9 @@ build:
   stage: build
   # instead of calling g++ directly you can also use some build toolkit like make
   # install the necessary build tools when needed
-  # before_script:
+  before_script:
      - apt update && apt -y install build-essential cmake qt5-default
+  script:
      - cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
      - cmake --build . --target lilDevil -- -j 2
   #script:

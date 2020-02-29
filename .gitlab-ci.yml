@@ -1,3 +1,5 @@
+image: gcc
+
 variables:
   SONAR_TOKEN: "77ff0f3c50419cf280c900e6b6fb7926dbfe4aa6"
   SONAR_HOST_URL: "https://sonarcloud.io"

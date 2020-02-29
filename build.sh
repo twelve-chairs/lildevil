@@ -1,6 +1,6 @@
-apt-get update -y
-
-apt-get install build-essential git cmake qt5-default -y
+#apt-get update -y
+#
+#apt-get install build-essential git cmake qt5-default -y
 
 source ~/.bashrc
 

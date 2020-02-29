@@ -37,6 +37,8 @@ build:
       - sonar-scanner/
       - bw-output/
   script:
+    - apt-get update -y
+    - apt-get install build-essential git cmake qt5-default -y
     # Run the build inside the build wrapper
     - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh
   only:

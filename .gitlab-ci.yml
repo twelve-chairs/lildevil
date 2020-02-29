@@ -1,8 +1,6 @@
 image: gcc
 
 variables:
-  SONAR_TOKEN: "77ff0f3c50419cf280c900e6b6fb7926dbfe4aa6"
-  SONAR_HOST_URL: "https://sonarcloud.io"
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
 
@@ -38,7 +36,7 @@ build:
       - bw-output/
   script:
     # Run the build inside the build wrapper
-    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output build.sh
+    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output ./build.sh
   only:
     - merge_requests
     - master

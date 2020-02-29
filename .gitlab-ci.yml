@@ -14,7 +14,7 @@ get-sonar-binaries:
       - sonar-scanner/
   script:
     - apt-get update -y
-    - apt-get install build-essential -y
+    - apt-get install curl build-essential -y
     # Download sonar-scanner
     - curl -sSLo ./sonar-scanner.zip 'https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip'
     - unzip -o sonar-scanner.zip

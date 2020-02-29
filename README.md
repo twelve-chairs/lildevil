@@ -6,8 +6,18 @@
  - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)
  - Windows: [`choco`](https://chocolatey.org/install), [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
  - Optionally, [`Qt 5.13+`](https://www.qt.io/download-qt-installer)
- 
-#### Build
+
+
+#### Pre-built Binaries
+
+- MacOS
+
+  `brew tap twelvechairssoftware/lildevil https://gitlab.com/twelvechairssoftware/lildevil`
+  
+  `brew cask install lildevil`
+
+
+#### Build your own
 Clone this repository
 
   `git clone https://github.com/twelvechairssoftware/lildevil.git`

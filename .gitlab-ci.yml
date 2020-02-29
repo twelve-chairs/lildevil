@@ -38,10 +38,7 @@ build:
       - bw-output/
   script:
     # Run the build inside the build wrapper
-    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output dnf groupinstall "Development Tools" &&
-      dnf install gcc-c++ cmake qt5 &&
-      cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" . &&
-      cmake --build ./cmake-build-minsizerel --target lilDevil -- -j 2
+    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output build.sh
   only:
     - merge_requests
     - master

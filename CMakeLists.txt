@@ -30,6 +30,8 @@ elseif (WIN32)
 
 else()
     set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/dist/snap)
+    set(CMAKE_PREFIX_PATH "/usr/local/opt/qt")
+
 
 endif()
 

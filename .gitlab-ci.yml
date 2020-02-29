@@ -36,7 +36,7 @@ build:
       - bw-output/
   script:
     # Run the build inside the build wrapper
-    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output ./build.sh
+    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh
   only:
     - merge_requests
     - master

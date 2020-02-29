@@ -13,8 +13,8 @@ get-sonar-binaries:
       - build-wrapper/
       - sonar-scanner/
   script:
-    - dnf groupinstall "Development Tools"
-    - dnf install gcc-c++ cmake qt5
+    - dnf groupinstall "Development Tools" -y
+    - dnf install gcc-c++ cmake qt5 -y
     # Download sonar-scanner
     - curl -sSLo ./sonar-scanner.zip 'https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip'
     - unzip -o sonar-scanner.zip

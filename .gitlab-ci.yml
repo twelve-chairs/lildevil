@@ -1,17 +1,18 @@
-image: gcc
+variables:
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+  GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
 
-build:
-  stage: build
-  before_script:
-     - apt update && apt -y install build-essential cmake qt5-default
-  script:
-     - cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
-     - cmake --build . --target lilDevil -- -j 2
-     - zip lildevil.zip -r /dist/snap/lilDevil*
-  artifacts:
+sonarcloud-check:
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  cache:
+    key: "${CI_JOB_NAME}"
     paths:
-      - dist/snap/
-    #   depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
-    #   cache:
-        #  paths:
-        #   - "*.o"
+      - .sonar/cache
+  script:
+    - sonar-scanner
+  only:
+    - merge_requests
+    - master
+    - develop

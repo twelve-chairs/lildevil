@@ -1,6 +1,6 @@
-dnf groupinstall "Development Tools"
+dnf groupinstall "Development Tools" -y
 
-dnf install gcc-c++ cmake qt5
+dnf install gcc-c++ cmake qt5 -y
 
 source ~/.bashrc
 

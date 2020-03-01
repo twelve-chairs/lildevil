@@ -58,6 +58,8 @@ sonarcloud-check:
       - bw-output/
       - build/
       - cmake-build-minsizerel/
+  before_script:
+    - apt-get update -y && apt-get install -y
   script:
     - apt-get install build-essential cmake -y
     - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}" -Dsonar.cfamily.build-wrapper-output=bw-output

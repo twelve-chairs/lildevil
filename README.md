@@ -1,6 +1,8 @@
 # lilDevil
 ### Cross-platform productivity workstation for developers' tools 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=alert_status)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
+![Pipeline Status](https://gitlab.com/twelvechairssoftware/lildevil/badges/master/pipeline.svg)
+![Coverage Status](https://gitlab.com/twelvechairssoftware/lildevil/badges/master/coverage.svg)
 
 #### Prerequisites
  - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)
@@ -16,6 +18,7 @@
   
   `brew cask install lildevil`
 
+- Debian
 
 #### Build your own
 Clone this repository

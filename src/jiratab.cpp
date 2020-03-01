@@ -98,7 +98,9 @@ void JiraTab::resetIssue(){
     try{
         delete issue;
     }
-    catch (std::exception &e){}
+    catch (std::exception &e){
+        std::cout << e.what() << std::endl;
+    }
     issue = new JiraIssue();
 
     selectWeight->clear();
@@ -163,12 +165,7 @@ void JiraTab::submitIssue(){
 }
 
 void JiraTab::getWeights(){
-    try {
-        selectWeight->addItems(issue->weight);
-    }
-    catch (std::exception &e){
-        std::cout << e.what() << std::endl;
-    }
+    selectWeight->addItems(issue->weight);
 }
 
 void JiraTab::getEpics(){

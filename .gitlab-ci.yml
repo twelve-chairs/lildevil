@@ -3,6 +3,7 @@ image: ubuntu
 variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+
 get-sonar-binaries:
   stage: .pre
   cache:
@@ -59,7 +60,7 @@ sonarcloud-check:
       - cmake-build-minsizerel/
   script:
     - chmod 777 /builds/twelvechairssoftware/lildevil/sonar-scanner/conf/sonar-scanner.properties
-    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}"
+    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}" -Dsonar.cfamily.build-wrapper-output=bw-output
   only:
     - merge_requests
     - master

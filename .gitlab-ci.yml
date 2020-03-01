@@ -11,8 +11,9 @@ get-sonar-binaries:
     paths:
       - build-wrapper/
       - sonar-scanner/
+  before_script:
+    - apt-get update -y && apt-get install -y
   script:
-    - apt-get update -y
     - apt-get install curl unzip -y
     # Download sonar-scanner
     - curl -sSLo ./sonar-scanner.zip 'https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip'
@@ -32,11 +33,12 @@ build:
       - sonar-scanner/
       - bw-output/
       - cmake-build-minsizerel/
+  before_script:
+    - apt-get update -y && apt-get install -y
   artifacts:
     paths:
       - cmake-build-minsizerel/lilDevil
   script:
-    - apt-get update -y
     - apt-get install build-essential cmake qt5-default -y
     # Run the build inside the build wrapper
     - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh

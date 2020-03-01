@@ -14,7 +14,7 @@
 
 - MacOS
 
-  `brew tap twelvechairssoftware/lildevil https://gitlab.com/twelvechairssoftware/lildevil`
+  `brew tap twelvechairssoftware/lildevil https://github.com/twelvechairssoftware/lildevil`
   
   `brew cask install lildevil`
 
@@ -23,7 +23,7 @@
 #### Build your own
 Clone this repository
 
-  `git clone https://github.com/twelvechairssoftware/lildevil.git`
+  `git clone https://gitlab.com/twelvechairssoftware/lildevil.git`
   
   `cd lildevil`
 

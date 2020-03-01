@@ -36,6 +36,7 @@ build:
       - build-wrapper/
       - sonar-scanner/
       - bw-output/
+      - cmake-build-minsizerel/
   script:
     - apt-get update -y
     - apt-get install build-essential git cmake qt5-default -y
@@ -55,8 +56,9 @@ sonarcloud-check:
       - build-wrapper/
       - sonar-scanner/
       - bw-output/
+      - cmake-build-minsizerel/
   script:
-    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}" -Dsonar.cfamily.build-wrapper-output=bw-output
+    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}"
   only:
     - merge_requests
     - master

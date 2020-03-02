@@ -14,7 +14,7 @@
 
 - MacOS
 
-  `brew tap twelvechairssoftware/lildevil https://github.com/twelvechairssoftware/lildevil`
+  `brew tap twelvechairssoftware/lildevil`
   
   `brew cask install lildevil`
 

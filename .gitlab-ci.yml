@@ -4,23 +4,18 @@ variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
 
-sonar-scan:
-  stage: Sonar
+get-sonar-binaries:
+  stage: .pre
   cache:
-    policy: pull-push
+    policy: push
     key: "${CI_COMMIT_SHORT_SHA}"
     paths:
-      - sonar-scanner/
       - build-wrapper/
-      - bw-output/
-      - cmake-build-minsizerel/
-      - build/
-
+      - sonar-scanner/
   before_script:
     - apt-get update -y && apt-get install -y
-
   script:
-    - apt-get install curl unzip build-essential cmake qt5-default -y
+    - apt-get install curl unzip -y
     # Download sonar-scanner
     - curl -sSLo ./sonar-scanner.zip 'https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip'
     - unzip -o sonar-scanner.zip
@@ -28,54 +23,47 @@ sonar-scan:
     # Download build-wrapper
     - curl -sSLo ./build-wrapper-linux-x86.zip "${SONAR_HOST_URL}/static/cpp/build-wrapper-linux-x86.zip"
     - unzip -oj build-wrapper-linux-x86.zip -d ./build-wrapper
-    # Run the build inside the build wrapper
-    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh
-    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}" -Dsonar.cfamily.build-wrapper-output=bw-output
 
+build:
+  stage: build
+  cache:
+    policy: pull-push
+    key: "${CI_COMMIT_SHORT_SHA}"
+    paths:
+      - build-wrapper/
+      - sonar-scanner/
+      - bw-output/
+      - cmake-build-minsizerel/
+  before_script:
+    - apt-get update -y && apt-get install -y
   artifacts:
     paths:
       - dist/snap/lilDevil
+  script:
+    - apt-get install build-essential cmake qt5-default -y
+    # Run the build inside the build wrapper
+    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh
+  only:
+    - merge_requests
+    - master
+    - develop
 
-#build:
-#  stage: build
-#  cache:
-#    policy: pull-push
-#    key: "${CI_COMMIT_SHORT_SHA}"
-#    paths:
-#      - build-wrapper/
-#      - sonar-scanner/
-#      - bw-output/
-#      - cmake-build-minsizerel/
-#  before_script:
-#    - apt-get update -y && apt-get install -y
-#  artifacts:
-#    paths:
-#      - dist/snap/lilDevil
-#  script:
-#    - apt-get install build-essential cmake qt5-default -y
-#    # Run the build inside the build wrapper
-#    - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh
-#  only:
-#    - merge_requests
-#    - master
-#    - develop
-#
-#sonarcloud-check:
-#  stage: .post
-#  cache:
-#    policy: pull
-#    key: "${CI_COMMIT_SHORT_SHA}"
-#    paths:
-#      - sonar-scanner/
-#      - bw-output/
-#      - build/
-#      - cmake-build-minsizerel/
-#  before_script:
-#    - apt-get update -y && apt-get install -y
-#  script:
-#    - apt-get install build-essential cmake -y
-#    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}" -Dsonar.cfamily.build-wrapper-output=bw-output
-#  only:
-#    - merge_requests
-#    - master
-#    - develop
+sonarcloud-check:
+  stage: .post
+  cache:
+    policy: pull
+    key: "${CI_COMMIT_SHORT_SHA}"
+    paths:
+      - sonar-scanner/
+      - bw-output/
+      - build/
+      - cmake-build-minsizerel/
+  before_script:
+    - apt-get update -y && apt-get install -y
+  script:
+    - apt-get install build-essential cmake -y
+    - sonar-scanner/bin/sonar-scanner -X -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.token="${SONAR_TOKEN}" -Dsonar.cfamily.build-wrapper-output=bw-output
+  only:
+    - merge_requests
+    - master
+    - develop

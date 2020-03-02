@@ -1,6 +1,6 @@
 # lilDevil
 ### Cross-platform productivity workstation for developers' tools 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=alert_status)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=alert_status&token=4329843c47a53da188d303a7358d7d97f9d58e94)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
 
 #### Prerequisites
  - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)

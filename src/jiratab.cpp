@@ -95,21 +95,13 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 JiraTab::~JiraTab() {}
 
 void JiraTab::resetIssue(){
-    try{
-        delete issue;
-    }
-    catch (std::exception &e){
-        std::cout << e.what() << std::endl;
-    }
+    delete issue;
+
     issue = new JiraIssue();
 
     selectWeight->clear();
-    try {
-        getWeights();
-    }
-    catch (std::exception &e){
-        std::cout << e.what() << std::endl;
-    }
+    getWeights();
+
     issueTitle->clear();
     issueTitle->insert(issue->defaultSummary);
 

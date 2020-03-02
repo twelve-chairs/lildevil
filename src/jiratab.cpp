@@ -95,7 +95,12 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 JiraTab::~JiraTab() {}
 
 void JiraTab::resetIssue(){
-    delete issue;
+    try {
+        delete issue;
+    }
+    catch (const std::exception &e){
+        std::clog << "Exception while deleting the issue: " << e.what();
+    }
 
     issue = new JiraIssue();
 
@@ -142,10 +147,12 @@ void JiraTab::submitIssue(){
                                          QMessageBox::Ok,
                                          QMessageBox::Ok);
             }
-            catch(std::exception &e){
+            catch(const std::exception &e){
                 QMessageBox::critical(this, "Error", tr(e.what()),
                                          QMessageBox::Ok,
                                          QMessageBox::Ok);
+                std::clog << "Exception while saving the document: " << e.what();
+
             }
             resetIssue();
             break;

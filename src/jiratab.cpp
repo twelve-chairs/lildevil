@@ -95,12 +95,7 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 JiraTab::~JiraTab() {}
 
 void JiraTab::resetIssue(){
-    try {
-        delete issue;
-    }
-    catch (const std::exception &e){
-        std::clog << "Exception while deleting the issue: " << e.what();
-    }
+    delete issue;
 
     issue = new JiraIssue();
 

@@ -1,5 +1,5 @@
 #include "jiratab.h"
-#include <QMessageLogger>
+#include <QtDebug>
 
 
 JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
@@ -103,6 +103,7 @@ void JiraTab::resetIssue(){
     catch(const std::system_error &e) {
         QMessageBox::warning(this, "Error", tr(e.what()),
                               QMessageBox::Ok);
+        qDebug() << e.what();
     }
 
     issue = new JiraIssue();
@@ -114,6 +115,7 @@ void JiraTab::resetIssue(){
     catch(const std::system_error &e) {
         QMessageBox::warning(this, "Error", tr(e.what()),
                               QMessageBox::Ok);
+        qDebug() << e.what();
     }
 
     issueTitle->clear();
@@ -158,8 +160,8 @@ void JiraTab::submitIssue(){
             }
             catch(const std::system_error &e){
                 QMessageBox::critical(this, "Error", tr(e.what()),
-                                      QMessageBox::Ok,
                                       QMessageBox::Ok);
+                qDebug() << e.what();
 
             }
             resetIssue();

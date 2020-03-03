@@ -40,6 +40,7 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 find_package(Qt5Widgets REQUIRED)
 

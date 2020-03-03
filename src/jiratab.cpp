@@ -1,5 +1,6 @@
 #include "jiratab.h"
-#include <boost/log/trivial.hpp>
+#include <QMessageLogger>
+
 
 JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
     auto gridlayout = new QGridLayout();
@@ -102,7 +103,6 @@ void JiraTab::resetIssue(){
     catch(const std::system_error &e) {
         QMessageBox::warning(this, "Error", tr(e.what()),
                               QMessageBox::Ok);
-        BOOST_LOG_TRIVIAL(error) << "Exception while deleting issue: " << e.what();
     }
 
     issue = new JiraIssue();
@@ -114,7 +114,6 @@ void JiraTab::resetIssue(){
     catch(const std::system_error &e) {
         QMessageBox::warning(this, "Error", tr(e.what()),
                               QMessageBox::Ok);
-        BOOST_LOG_TRIVIAL(error) << "Exception while getting weights: " << e.what();
     }
 
     issueTitle->clear();
@@ -161,7 +160,6 @@ void JiraTab::submitIssue(){
                 QMessageBox::critical(this, "Error", tr(e.what()),
                                       QMessageBox::Ok,
                                       QMessageBox::Ok);
-                BOOST_LOG_TRIVIAL(error) << "Exception while saving the document: " << e.what();
 
             }
             resetIssue();

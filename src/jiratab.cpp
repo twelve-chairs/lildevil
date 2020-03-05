@@ -97,26 +97,12 @@ JiraTab::JiraTab(QWidget *parent) : QWidget(parent) {
 JiraTab::~JiraTab() {}
 
 void JiraTab::resetIssue(){
-    try {
-        delete issue;
-    }
-    catch(const std::system_error &e) {
-        QMessageBox::warning(this, "Error", tr(e.what()),
-                              QMessageBox::Ok);
-        qDebug() << "Exception while resetting issue: " << e.what();
-    }
+    delete issue;
 
     issue = new JiraIssue();
 
     selectWeight->clear();
-    try {
-        getWeights();
-    }
-    catch(const std::exception &e) {
-        QMessageBox::warning(this, "Error", tr(e.what()),
-                              QMessageBox::Ok);
-        qDebug() << "Exception while getting weights: " << e.what();
-    }
+    getWeights();
 
     issueTitle->clear();
     issueTitle->insert(issue->defaultSummary);

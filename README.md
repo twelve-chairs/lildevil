@@ -5,6 +5,7 @@
 #### Prerequisites
  - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)
  - Windows: [`choco`](https://chocolatey.org/install), [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
+ - Linux [`snapd`](https://snapcraft.io/docs/installing-snapd)
  - Optionally, [`Qt 5.13+`](https://www.qt.io/download-qt-installer)
 
 
@@ -17,6 +18,8 @@
   `brew cask install lildevil`
 
 - Debian
+
+  `snapd install lildevil`
 
 #### Build your own
 Clone this repository

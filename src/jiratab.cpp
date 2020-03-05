@@ -103,7 +103,7 @@ void JiraTab::resetIssue(){
     catch(const std::system_error &e) {
         QMessageBox::warning(this, "Error", tr(e.what()),
                               QMessageBox::Ok);
-        qDebug() << e.what();
+        qDebug() << "Exception while resetting issue: " << e.what();
     }
 
     issue = new JiraIssue();
@@ -112,10 +112,10 @@ void JiraTab::resetIssue(){
     try {
         getWeights();
     }
-    catch(const std::system_error &e) {
+    catch(const std::exception &e) {
         QMessageBox::warning(this, "Error", tr(e.what()),
                               QMessageBox::Ok);
-        qDebug() << e.what();
+        qDebug() << "Exception while getting weights: " << e.what();
     }
 
     issueTitle->clear();
@@ -158,10 +158,10 @@ void JiraTab::submitIssue(){
                                          QMessageBox::Ok,
                                          QMessageBox::Ok);
             }
-            catch(const std::system_error &e){
+            catch(const std::exception &e){
                 QMessageBox::critical(this, "Error", tr(e.what()),
                                       QMessageBox::Ok);
-                qDebug() << e.what();
+                qDebug() << "Exception while submitting issue: " << e.what();
 
             }
             resetIssue();

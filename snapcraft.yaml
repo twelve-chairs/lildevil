@@ -1,0 +1,22 @@
+name: test-dosbox-lidevil
+version: "0.01"
+summary: Cross-platform productivity workstation for developers' tools
+description: |
+  Cross-platform productivity workstation for developers' tools
+
+confinement: classic
+base: core18
+
+parts:
+  test-dosbox-lidevil:
+    plugin: autotools
+    source-type: zip
+    source: https://gitlab.com/twelvechairssoftware/lildevil/-/archive/master/lildevil-master.zip
+    build-packages:
+      - build-essential
+      - cmake
+      - qt5-default
+
+apps:
+  test-dosbox-lidevil:
+    command: lildevil

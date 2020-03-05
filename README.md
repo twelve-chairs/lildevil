@@ -1,15 +1,9 @@
 # lilDevil
-### Cross-platform productivity workstation for developers' tools 
+#### Cross-platform productivity workstation for developers' tools 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=alert_status&token=4329843c47a53da188d303a7358d7d97f9d58e94)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
 
-#### Prerequisites
- - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)
- - Windows: [`choco`](https://chocolatey.org/install), [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
- - Linux: [`snapd`](https://snapcraft.io/docs/installing-snapd)
- - Rarely needed: [`Qt 5.13+`](https://www.qt.io/download-qt-installer)
 
-
-#### Pre-built Binaries
+### Pre-built Binaries
 
 - MacOS
 
@@ -21,7 +15,14 @@
 
   `snapd install lildevil`
 
-#### Build your own
+### Build your own
+Prerequisites
+ - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)
+ - Windows: [`choco`](https://chocolatey.org/install), [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
+ - Linux: [`snapd`](https://snapcraft.io/docs/installing-snapd)
+ - Rarely needed: [`Qt 5.13+`](https://www.qt.io/download-qt-installer)
+
+
 Clone this repository
 
   `git clone https://gitlab.com/twelvechairssoftware/lildevil.git`

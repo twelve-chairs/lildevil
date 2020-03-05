@@ -17,7 +17,7 @@
   
   `brew cask install lildevil`
 
-- Debian
+- Linux
 
   `snapd install lildevil`
 

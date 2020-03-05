@@ -40,7 +40,7 @@ build:
     paths:
       - dist/snap/lilDevil
   script:
-    - apt-get install build-essential cmake qt5-default -y
+    - apt-get install build-essential cmake qt5-default libboost-all-dev -y
     # Run the build inside the build wrapper
     - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw-output sh build.sh
   only:

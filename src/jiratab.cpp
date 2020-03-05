@@ -122,39 +122,29 @@ void JiraTab::submitIssue(){
                                    QMessageBox::Ok);
     switch (ret){
         case QMessageBox::Ok:
-            try {
-                QNetworkRequest request;
-                request.setUrl(QUrl(settings.value("jiraApiUrl").toString()));
-                request.setRawHeader("Content-type", "application/json");
 
-                auto *networkManager = new QNetworkAccessManager(this);
+            QNetworkRequest request;
+            request.setUrl(QUrl(settings.value("jiraApiUrl").toString()));
+            request.setRawHeader("Content-type", "application/json");
 
-                QNetworkReply *reply = networkManager->post(request, issue->getJsonString().toUtf8());
+            auto *networkManager = new QNetworkAccessManager(this);
 
-                QEventLoop loop;
-                connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-                loop.exec();
+            QNetworkReply *reply = networkManager->post(request, issue->getJsonString().toUtf8());
 
-                auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
+            QEventLoop loop;
+            connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+            loop.exec();
+
+            auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
 //                repos = replyJsonDoc.object();
-                QString replyJsonString(replyJsonDoc.toJson(QJsonDocument::Compact));
+            QString replyJsonString(replyJsonDoc.toJson(QJsonDocument::Compact));
 
-                QMessageBox::information(this, tr("New issue"),
-                                         replyJsonString,
-                                         QMessageBox::Ok,
-                                         QMessageBox::Ok);
-            }
-            catch(const std::exception &e){
-                QMessageBox::critical(this, "Error", tr(e.what()),
-                                      QMessageBox::Ok);
-                qDebug() << "Exception while submitting issue: " << e.what();
+            QMessageBox::information(this, tr("New issue"),
+                                     replyJsonString,
+                                     QMessageBox::Ok,
+                                     QMessageBox::Ok);
 
-            }
             resetIssue();
-            break;
-        case QMessageBox::Cancel:
-            break;
-        default:
             break;
     }
 }

@@ -120,33 +120,30 @@ void JiraTab::submitIssue(){
                                    "Are you sure you are ready to submit it?",
                                    QMessageBox::Ok | QMessageBox::Cancel,
                                    QMessageBox::Ok);
-    switch (ret){
-        case QMessageBox::Ok:
 
-            QNetworkRequest request;
-            request.setUrl(QUrl(settings.value("jiraApiUrl").toString()));
-            request.setRawHeader("Content-type", "application/json");
+    QNetworkRequest request;
+    request.setUrl(QUrl(settings.value("jiraApiUrl").toString()));
+    request.setRawHeader("Content-type", "application/json");
 
-            auto *networkManager = new QNetworkAccessManager(this);
+    auto *networkManager = new QNetworkAccessManager(this);
 
-            QNetworkReply *reply = networkManager->post(request, issue->getJsonString().toUtf8());
+    QNetworkReply *reply = networkManager->post(request, issue->getJsonString().toUtf8());
 
-            QEventLoop loop;
-            connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-            loop.exec();
+    QEventLoop loop;
+    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
 
-            auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
+    auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
 //                repos = replyJsonDoc.object();
-            QString replyJsonString(replyJsonDoc.toJson(QJsonDocument::Compact));
+    QString replyJsonString(replyJsonDoc.toJson(QJsonDocument::Compact));
 
-            QMessageBox::information(this, tr("New issue"),
-                                     replyJsonString,
-                                     QMessageBox::Ok,
-                                     QMessageBox::Ok);
+    QMessageBox::information(this, tr("New issue"),
+                             replyJsonString,
+                             QMessageBox::Ok,
+                             QMessageBox::Ok);
 
-            resetIssue();
-            break;
-    }
+    resetIssue();
+
 }
 
 void JiraTab::getWeights(){

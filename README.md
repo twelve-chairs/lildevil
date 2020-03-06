@@ -16,6 +16,10 @@
 
   `snapd install lildevil`
 
+- Windows
+
+  `choco install lildevil`
+
 ### Build your own
 Prerequisites
  - MacOS: [`brew`](https://brew.sh), Xcode (`xcode-select --install`)

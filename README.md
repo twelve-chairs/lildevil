@@ -8,7 +8,7 @@
 
 - MacOS
     
-  Prerequisite: [`brew`](https://brew.sh)
+  Prerequisite: [brew](https://brew.sh)
 
   `brew tap twelvechairssoftware/lildevil`
   
@@ -16,13 +16,13 @@
 
 - Linux
 
-  Prerequisite: [`snapd`](https://snapcraft.io/docs/installing-snapd)
+  Prerequisite: [snapd](https://snapcraft.io/docs/installing-snapd)
   
   `snapd install lildevil`
 
 - Windows
 
-  Prerequisite: [`choco`](https://chocolatey.org/install)
+  Prerequisite: [choco](https://chocolatey.org/install)
   
   `choco install lildevil`
 
@@ -30,7 +30,7 @@
 Prerequisites
  - MacOS: Xcode (`xcode-select --install`)
  - Windows: [Visual Studio 12+ (VS2017)](https://visualstudio.microsoft.com/vs/community/)
- - Rarely needed: [`Qt 5.13+`](https://www.qt.io/download-qt-installer)
+ - Rarely needed: [Qt 5.13+](https://www.qt.io/download-qt-installer)
 
 
 Clone this repository

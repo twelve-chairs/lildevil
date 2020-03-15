@@ -8,7 +8,7 @@
 
 - MacOS
     
-  Prerequisite: [brew](https://brew.sh)
+  Prerequisite: [homebrew](https://brew.sh)
 
   `brew tap twelvechairssoftware/lildevil`
   
@@ -16,9 +16,11 @@
 
 - Linux
 
-  Prerequisite: [snapd](https://snapcraft.io/docs/installing-snapd)
+  Prerequisite: [homebrew](https://docs.brew.sh/Homebrew-on-Linux)
   
-  `snapd install lildevil`
+  `brew tap twelvechairssoftware/lildevil`
+    
+  `brew cask install lildevil`
 
 - Windows
 

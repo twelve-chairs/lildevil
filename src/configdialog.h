@@ -15,10 +15,9 @@ private:
     QLineEdit *jiraApiUrl;
     QLineEdit *jenkinsApiUrl;
     QLineEdit *defaultSummary;
+    QLineEdit *defaultIssueWeight;
     QTextEdit *defaultDescription;
     QTextEdit *baseIssueObject;
-    QLineEdit *defaultIssueWeight;
-
     QSettings settings;
 
 private slots:

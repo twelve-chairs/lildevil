@@ -7,7 +7,7 @@
 #      -u ${USERNAME} \
 #      -p <PASSWORD>
 #
-## (Optional) Double-check that mutliple providers are not selected
+## (Optional) Double-check if multiple providers are available
 #xcrun altool \
 #      --list-providers \
 #      -u ${USERNAME} \
@@ -46,22 +46,22 @@ xcrun altool \
 xcrun stapler \
       staple ${BUNDLE_PATH}"lilDevil.app"
 
-# Uploads the given app archive to the App Store (experimental)
-xcrun altool \
-      --validate-app \
-      --asc-provider ${PROVIDER} \
-      -t "osx" \
-      -u ${USERNAME} \
-      -p ${PASSWORD} \
-      -f ${BUNDLE_PATH}"lilDevil.zip"
-
-xcrun altool \
-      --upload-app \
-      --asc-provider ${PROVIDER} \
-      -t "osx" \
-      -u ${USERNAME} \
-      -p ${PASSWORD} \
-      -f ${BUNDLE_PATH}"lilDevil.zip"
+## Uploads the given app archive to the App Store (experimental)
+#xcrun altool \
+#      --validate-app \
+#      --asc-provider ${PROVIDER} \
+#      -t "osx" \
+#      -u ${USERNAME} \
+#      -p ${PASSWORD} \
+#      -f ${BUNDLE_PATH}"lilDevil.zip"
+#
+#xcrun altool \
+#      --upload-app \
+#      --asc-provider ${PROVIDER} \
+#      -t "osx" \
+#      -u ${USERNAME} \
+#      -p ${PASSWORD} \
+#      -f ${BUNDLE_PATH}"lilDevil.zip"
 
 # Cleanup
 rm -f ${BUNDLE_PATH}"lilDevil.zip"

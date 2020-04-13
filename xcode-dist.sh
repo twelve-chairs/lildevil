@@ -1,7 +1,7 @@
 ## (Optional) Set Xcode as default build tool
 #sudo xcode-select -s /Applications/Xcode.app
 #
-## (Optional) Save app-specific password to keychain
+## (Optional) Save app-specific password to local keychain
 # xcrun altool \
 #      --store-password-in-keychain-item ${KEYCHAIN} \
 #      -u ${USERNAME} \
@@ -18,8 +18,17 @@
 xattr -cr ${BUNDLE_PATH}"lilDevil.app/"
 
 # Code sign bundle (enable hardened runtime)
-codesign -s ${PROVIDER} -v ${BUNDLE_PATH}"lilDevil.app/" -o runtime --force
-codesign -s ${PROVIDER} -v ${BUNDLE_PATH}"lilDevil.app/Contents/MacOS/lilDevil" -o runtime --force
+codesign \
+      -s ${PROVIDER} \
+      -v ${BUNDLE_PATH}"lilDevil.app/" \
+      -o runtime \
+      --force
+
+codesign \
+      -s ${PROVIDER} \
+      -v ${BUNDLE_PATH}"lilDevil.app/Contents/MacOS/lilDevil" \
+      -o runtime \
+      --force
 
 # ZIP bundle
 rm -f ${BUNDLE_PATH}"lilDevil.zip"
@@ -38,8 +47,8 @@ NOTARIZATION=$(xcrun altool \
 sleep 90
 xcrun altool \
       --notarization-info ${NOTARIZATION} \
-      -u ${USERNAME} \
       --asc-provider ${PROVIDER} \
+      -u ${USERNAME} \
       -p ${PASSWORD}
 
 # Staple the Ticket to Distro

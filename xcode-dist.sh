@@ -12,8 +12,7 @@
 #      --list-providers \
 #      -u ${USERNAME} \
 #      -p ${PASSWORD}
-#
-#
+
 # Clean up app bundle
 xattr -cr ${BUNDLE_PATH}"lilDevil.app/"
 
@@ -23,7 +22,6 @@ codesign \
       -v ${BUNDLE_PATH}"lilDevil.app/" \
       -o runtime \
       --force
-
 codesign \
       -s ${PROVIDER} \
       -v ${BUNDLE_PATH}"lilDevil.app/Contents/MacOS/lilDevil" \
@@ -35,7 +33,7 @@ rm -f ${BUNDLE_PATH}"lilDevil.zip"
 zip -r ${BUNDLE_PATH}"lilDevil.zip" ${BUNDLE_PATH}"lilDevil.app"
 
 # Request app notarization
-NOTARIZATION=$(xcrun altool \
+NOTARIZATION_ID=$(xcrun altool \
       --notarize-app \
       --primary-bundle-id ${BUNDLE_ID} \
       --asc-provider ${PROVIDER} \
@@ -46,7 +44,7 @@ NOTARIZATION=$(xcrun altool \
 # Check on status
 sleep 90
 xcrun altool \
-      --notarization-info ${NOTARIZATION} \
+      --notarization-info ${NOTARIZATION_ID} \
       --asc-provider ${PROVIDER} \
       -u ${USERNAME} \
       -p ${PASSWORD}
@@ -55,22 +53,14 @@ xcrun altool \
 xcrun stapler \
       staple ${BUNDLE_PATH}"lilDevil.app"
 
-## Uploads the given app archive to the App Store (experimental)
-#xcrun altool \
-#      --validate-app \
-#      --asc-provider ${PROVIDER} \
-#      -t "osx" \
-#      -u ${USERNAME} \
-#      -p ${PASSWORD} \
-#      -f ${BUNDLE_PATH}"lilDevil.zip"
-#
-#xcrun altool \
-#      --upload-app \
-#      --asc-provider ${PROVIDER} \
-#      -t "osx" \
-#      -u ${USERNAME} \
-#      -p ${PASSWORD} \
-#      -f ${BUNDLE_PATH}"lilDevil.zip"
+# Validate app archive for the App Store (experimental)
+xcrun altool \
+      --validate-app \
+      --asc-provider ${PROVIDER} \
+      -t "osx" \
+      -u ${USERNAME} \
+      -p ${PASSWORD} \
+      -f ${BUNDLE_PATH}"lilDevil.zip"
 
 # Cleanup
 rm -f ${BUNDLE_PATH}"lilDevil.zip"

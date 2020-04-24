@@ -34,5 +34,15 @@
     <string>${MACOSX_BUNDLE_COPYRIGHT}</string>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
+    <key>CFBundleSupportedPlatforms</key>
+        <array>
+            <string>MacOSX</string>
+        </array>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.developer-tools</string>
+    <key>CFBundleSignature</key>
+    <string>LILD</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.15.4</string>
 </dict>
 </plist>

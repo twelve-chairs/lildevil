@@ -1,3 +1,4 @@
+
 ## (Optional) Set Xcode as default build tool
 #sudo xcode-select -s /Applications/Xcode.app
 #
@@ -7,60 +8,93 @@
 #      -u ${USERNAME} \
 #      -p <PASSWORD>
 #
-## (Optional) Double-check if multiple providers are available
-#xcrun altool \
-#      --list-providers \
-#      -u ${USERNAME} \
-#      -p ${PASSWORD}
-
+#
 # Clean up app bundle
-xattr -cr ${BUNDLE_PATH}"lilDevil.app/"
+xattr -cr ${BUNDLE_PATH}${APP_NAME}".app/"
 
 # Code sign bundle (enable hardened runtime)
 codesign \
-      -s ${PROVIDER} \
-      -v ${BUNDLE_PATH}"lilDevil.app/" \
-      -o runtime \
-      --force
-codesign \
-      -s ${PROVIDER} \
-      -v ${BUNDLE_PATH}"lilDevil.app/Contents/MacOS/lilDevil" \
-      -o runtime \
+      -dvv ${BUNDLE_PATH}${APP_NAME}".app/" \
+      --sign ${DEVELOPER_ID} \
+      --options runtime \
+      --timestamp \
       --force
 
-# ZIP bundle
-rm -f ${BUNDLE_PATH}"lilDevil.zip"
-zip -r ${BUNDLE_PATH}"lilDevil.zip" ${BUNDLE_PATH}"lilDevil.app"
+codesign \
+      -dvv ${BUNDLE_PATH}${APP_NAME}".app/Contents/MacOS/"${APP_NAME} \
+      --sign ${DEVELOPER_ID} \
+      --options runtime \
+      --timestamp \
+      --force
+
+spctl -vvv --assess --type exec ${BUNDLE_PATH}${APP_NAME}".app"
 
 # Request app notarization
+pushd ${BUNDLE_PATH}
+  rm -f ${APP_NAME}".zip"
+  zip -r ${APP_NAME}".zip" ${APP_NAME}".app"
+popd
+
 NOTARIZATION_ID=$(xcrun altool \
       --notarize-app \
       --primary-bundle-id ${BUNDLE_ID} \
-      --asc-provider ${PROVIDER} \
       -u ${USERNAME} \
       -p ${PASSWORD} \
-      -f ${BUNDLE_PATH}"lilDevil.zip" | grep "RequestUUID = " | sed "s/RequestUUID = //")
+      -f ${BUNDLE_PATH}${APP_NAME}".zip" | grep "RequestUUID = " | sed "s/RequestUUID = //")
+
+rm -rf ${BUNDLE_PATH}${APP_NAME}".zip"
+
+echo "Waiting for notarization results..."
+sleep 120
 
 # Check on status
-sleep 90
 xcrun altool \
       --notarization-info ${NOTARIZATION_ID} \
-      --asc-provider ${PROVIDER} \
       -u ${USERNAME} \
       -p ${PASSWORD}
 
 # Staple the Ticket to Distro
 xcrun stapler \
-      staple ${BUNDLE_PATH}"lilDevil.app"
+      staple ${BUNDLE_PATH}${APP_NAME}".app"
 
-# Validate app archive for the App Store (experimental)
+codesign \
+      -dvv ${BUNDLE_PATH}${APP_NAME}".app/" \
+      --entitlements "entitlements" \
+      --sign ${DEVELOPER_APPLICATION} \
+      --options runtime \
+      --timestamp \
+      --force
+
+codesign \
+      -dvv ${BUNDLE_PATH}${APP_NAME}".app/Contents/MacOS/"${APP_NAME} \
+      --entitlements "entitlements" \
+      --sign ${DEVELOPER_APPLICATION} \
+      --options runtime \
+      --timestamp \
+      --force
+
+codesign \
+      --verify ${BUNDLE_PATH}${APP_NAME}".app/"
+
+productbuild \
+      --component ${BUNDLE_PATH}${APP_NAME}".app" /Applications ${BUNDLE_PATH}${APP_NAME}".pkg" \
+      --sign ${DEVELOPER_INSTALLER}
+
+# Validate app archive for the App Store
 xcrun altool \
       --validate-app \
-      --asc-provider ${PROVIDER} \
       -t "osx" \
       -u ${USERNAME} \
       -p ${PASSWORD} \
-      -f ${BUNDLE_PATH}"lilDevil.zip"
+      -f ${BUNDLE_PATH}${APP_NAME}".pkg"
 
-# Cleanup
-rm -f ${BUNDLE_PATH}"lilDevil.zip"
+#xcrun altool \
+#      --upload-app \
+#      -t "osx" \
+#      -u ${USERNAME} \
+#      -p ${PASSWORD} \
+#      -f ${BUNDLE_PATH}"lilDevil.pkg"
+#
+#
+## Cleanup
+#rm -rf ${BUNDLE_PATH}"lilDevil.app"

@@ -1,3 +1,15 @@
+APP_NAME="lilDevil"
+USERNAME="asimakov@twelvechairs-software.com"
+
+KEYCHAIN="XcodeSecurity"
+PASSWORD="@keychain:"${KEYCHAIN}
+
+BUNDLE_ID="com.twelvechairs-software."${APP_NAME}
+BUNDLE_PATH="/Users/vokamisair/Documents/dev/"${APP_NAME}"/dist/homebrew/"
+
+DEVELOPER_ID="Developer ID Application: Twelve Chairs Software, LLC"
+DEVELOPER_APPLICATION="3rd Party Mac Developer Application: Twelve Chairs Software, LLC"
+DEVELOPER_INSTALLER="3rd Party Mac Developer Installer: Twelve Chairs Software, LLC"
 
 ## (Optional) Set Xcode as default build tool
 #sudo xcode-select -s /Applications/Xcode.app
@@ -45,7 +57,7 @@ NOTARIZATION_ID=$(xcrun altool \
 rm -rf ${BUNDLE_PATH}${APP_NAME}".zip"
 
 echo "Waiting for notarization results..."
-sleep 120
+sleep 360
 
 # Check on status
 xcrun altool \

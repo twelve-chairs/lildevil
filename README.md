@@ -1,9 +1,7 @@
 # lilDevil
 #### Cross-platform productivity workstation for developers' tools 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=alert_status&token=4329843c47a53da188d303a7358d7d97f9d58e94)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=ncloc&token=4329843c47a53da188d303a7358d7d97f9d58e94)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=security_rating&token=4329843c47a53da188d303a7358d7d97f9d58e94)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=vulnerabilities&token=4329843c47a53da188d303a7358d7d97f9d58e94)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
+![Build](https://github.com/twelvechairssoftware/lildevil/workflows/Build/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelvechairssoftware_lildevil&metric=alert_status&token=52a788a89ceba2c5c9520f211197652e716811cd)](https://sonarcloud.io/dashboard?id=twelvechairssoftware_lildevil)
 ### Pre-built Binaries
 
 - MacOS

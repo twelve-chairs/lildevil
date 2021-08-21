@@ -132,9 +132,10 @@ QString GithubTab::postGitHub(const QString& url, const QList<QMap<QString, QStr
     auto *networkManager = new QNetworkAccessManager();
     QNetworkReply *reply = networkManager->post(request, data.toUtf8());
 
-    QEventLoop loop;
-    connect(reply, SIGNAL (finished()), &loop, SLOT (quit()));
-    loop.exec();
+//    Doesn't work in QT6
+//    QEventLoop loop;
+//    connect(reply, SIGNAL (finished()), &loop, SLOT (quit()));
+//    loop.exec();
 
     auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
     QString replyJsonString(replyJsonDoc.toJson(QJsonDocument::Compact));

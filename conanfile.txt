@@ -1,0 +1,16 @@
+#conan remote add conancenter https://center.conan.io
+
+[requires]
+fmt/8.0.1
+spdlog/1.9.2
+qt/6.1.2
+
+[build_requires]
+fmt/8.0.1
+spdlog/1.9.2
+qt/6.1.2
+
+[generators]
+cmake
+cmake_find_package
+cmake_paths

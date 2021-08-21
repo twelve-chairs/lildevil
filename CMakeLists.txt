@@ -1,14 +1,24 @@
-cmake_minimum_required(VERSION 3.1.0)
+cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;MinSizeRel" CACHE STRING "" FORCE)
-
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-include(QtCommon)
+
+set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+set(CMAKE_HAVE_THREADS_LIBRARY 1)
+set(CMAKE_USE_WIN32_THREADS_INIT 0)
+set(CMAKE_USE_PTHREADS_INIT 1)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
+
+set(CMAKE_AUTOMOC OFF)
+set(CMAKE_AUTORCC OFF)
+set(CMAKE_AUTOUIC OFF)
 
 project(lilDevil)
 
 set(COMPANY "Twelve Chairs Software, LLC")
-set(COPYRIGHT "Copyright (c) 2020 Twelve Chairs Software, LLC. All rights reserved.")
+set(COPYRIGHT "Copyright (c) 2021 Twelve Chairs Software, LLC. All rights reserved.")
 set(IDENTIFIER "com.twelvechairs-software.lildevil")
 set(LICENSE "MIT")
 set(BUNDLE_VERSION "1.0")
@@ -37,17 +47,16 @@ else()
     set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/dist/snap)
     set(CMAKE_PREFIX_PATH "/usr/local/opt/qt")
 
-
 endif()
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
-find_package(Boost REQUIRED)
-include_directories(${Boost_INCLUDE_DIRS})
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
+include(conanbuildinfo.cmake)
+conan_basic_setup()
 
-find_package(Qt5Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Gui Concurrent Widgets Network REQUIRED)
+include(QtCommon)
 
 add_project_meta(META_FILES_TO_INCLUDE)
 set(RESOURCE_FILES ${PROJECT_NAME}.qrc)
@@ -74,4 +83,4 @@ add_executable(${PROJECT_NAME}
         ${RESOURCE_FILES}
         )
 
-qt5_use_modules(${PROJECT_NAME} Gui Concurrent Widgets Network)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Gui Qt6::Concurrent Qt6::Network ${CONAN_LIBS})

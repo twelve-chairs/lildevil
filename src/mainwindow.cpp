@@ -23,13 +23,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
 MainWindow::~MainWindow(){}
 
 void MainWindow::logindialog() {
-    auto *mainLayout = new QGridLayout();
+    mainLayout = new QGridLayout();
 
     auto *collection = new QWidget;
-    QVBoxLayout *layout = new QVBoxLayout();
+    auto *layout = new QVBoxLayout();
 
-    QScrollArea *scrollArea = new QScrollArea;
-    QLabel *imageLabel = new QLabel;
+    auto *scrollArea = new QScrollArea;
+    auto *imageLabel = new QLabel;
     QImage image(":/res/AppIcon.ico");
     imageLabel->setPixmap(QPixmap::fromImage(image).scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     scrollArea->setAlignment(Qt::AlignHCenter);

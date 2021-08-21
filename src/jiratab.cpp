@@ -129,9 +129,9 @@ void JiraTab::submitIssue(){
 
     QNetworkReply *reply = networkManager->post(request, issue->getJsonString().toUtf8());
 
-    QEventLoop loop;
-    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
+//    QEventLoop loop;
+//    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+//    loop.exec();
 
     auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
 //                repos = replyJsonDoc.object();
@@ -158,9 +158,9 @@ void JiraTab::getEpics(){
     auto *networkManager = new QNetworkAccessManager(this);
     QNetworkReply *reply = networkManager->get(request);
 
-    QEventLoop loop;
-    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
+//    QEventLoop loop;
+//    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+//    loop.exec();
 
     auto replyJsonDoc = QJsonDocument::fromJson(reply->readAll());
     epics = replyJsonDoc.object();

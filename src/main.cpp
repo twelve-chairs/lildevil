@@ -13,12 +13,12 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("lilDevil");
 
     QSettings settings;
-
-    QDesktopWidget *desktop = QApplication::desktop();
-
     MainWindow w;
+
+    QScreen *desktop = QGuiApplication::primaryScreen();
+
     w.resize(window::windowWidth, window::windowHeight);
-    w.move((desktop->width() - window::windowWidth) / 2, (desktop->height() - window::windowHeight) / 2);
+    w.move((desktop->size().width() - window::windowWidth) / 2, (desktop->size().height() - window::windowHeight) / 2);
     w.show();
 
     return QApplication::exec();

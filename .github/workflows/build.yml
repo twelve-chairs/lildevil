@@ -36,7 +36,7 @@ jobs:
     - name: Build Qt6
       uses: jurplel/install-qt-action@v2
       with:
-        version: '6.1'
+        version: '6'
         host: 'linux'
         target: 'desktop'
         dir: '${{ github.workspace }}/usr/local/opt/qt/'

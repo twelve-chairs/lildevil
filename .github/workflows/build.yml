@@ -30,9 +30,22 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential git cmake curl qt5-default
+        sudo apt-get install -y build-essential pip git cmake curl
         pip install conan
-    - name: Libs
+        pip install aqtinstall
+    - name: Build Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.2'
+        host: 'linux'
+        target: 'desktop'
+        dir: '${{ github.workspace }}/usr/local/opt/qt/'
+        install-deps: 'true'
+        cached: 'false'
+        setup-python: 'true'
+        set-env: 'true'
+        tools-only: 'false'
+    - name: Conan
       shell: bash
       run: |
         conan profile new default --detect

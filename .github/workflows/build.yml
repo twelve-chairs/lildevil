@@ -33,10 +33,10 @@ jobs:
         sudo apt-get install -y build-essential pip git cmake curl
         pip install conan
         pip install aqtinstall
-    - name: Build Qt6
+    - name: Build Qt
       uses: jurplel/install-qt-action@v2
       with:
-        version: '6'
+        version: '5.15.2'
         host: 'linux'
         target: 'desktop'
         dir: '${{ github.workspace }}/usr/local/opt/qt/'

@@ -19,9 +19,10 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
 else
   # Default
   echo "Unable to detect platform"
+  exit
 fi
 
-conan install . --build=missing
+conan install . --build=missing --update
 
 #mkdir cmake-build-minsizerel
 #

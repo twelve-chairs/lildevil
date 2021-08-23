@@ -3,12 +3,12 @@
 [requires]
 fmt/8.0.1
 spdlog/1.9.2
-qt/6.1.2
+qt/5.15.2
 
 [build_requires]
 fmt/8.0.1
 spdlog/1.9.2
-qt/6.1.2
+qt/5.15.2
 
 [generators]
 cmake

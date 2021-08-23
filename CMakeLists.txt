@@ -53,12 +53,13 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 include(conanbuildinfo.cmake)
-conan_basic_setup()
+conan_basic_setup(TARGETS)
+include_directories(${CONAN_INCLUDE_DIRS})
 
-find_package(Qt6 COMPONENTS Gui Concurrent Widgets Network REQUIRED)
+find_package(Qt5 COMPONENTS Gui Concurrent Widgets Network)
 include(QtCommon)
-
 add_project_meta(META_FILES_TO_INCLUDE)
+
 set(RESOURCE_FILES ${PROJECT_NAME}.qrc)
 
 add_executable(${PROJECT_NAME}
@@ -83,4 +84,6 @@ add_executable(${PROJECT_NAME}
         ${RESOURCE_FILES}
         )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Gui Qt6::Concurrent Qt6::Network ${CONAN_LIBS})
+target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS} )
+#CONAN_PKG::Qt5::Gui
+#Qt5::Widgets Qt5::Gui Qt5::Concurrent Qt5::Network

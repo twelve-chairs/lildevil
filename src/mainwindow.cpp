@@ -31,7 +31,10 @@ void MainWindow::logindialog() {
     auto *scrollArea = new QScrollArea;
     auto *imageLabel = new QLabel;
     QImage image(":/res/AppIcon.ico");
-    imageLabel->setPixmap(QPixmap::fromImage(image).scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    imageLabel->setPixmap(QPixmap::fromImage(image).scaled(100,
+                                                           100,
+                                                           Qt::KeepAspectRatio,
+                                                           Qt::SmoothTransformation));
     scrollArea->setAlignment(Qt::AlignHCenter);
     scrollArea->setFrameShape(QFrame::NoFrame);
     scrollArea->setWidget(imageLabel);

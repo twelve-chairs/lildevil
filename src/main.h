@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-//#include <QScreen>
+#include <QScreen>
+#include <QWidget>
 
 #endif //LILDEVIL_MAIN_H

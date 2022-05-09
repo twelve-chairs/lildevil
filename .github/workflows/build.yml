@@ -35,6 +35,7 @@ jobs:
     - name: Sonar Build Wrapper
       shell: bash
       run: |
+        export CONAN_SYSREQUIRES_MODE=enabled
         curl -L -O https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
         unzip -q build-wrapper-linux-x86.zip
         cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .

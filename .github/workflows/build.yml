@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
         
@@ -29,20 +29,12 @@ jobs:
       # and build directories, but this is only available with CMake 3.13 and higher.  
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: |
-        sudo apt-get update
         sudo apt-get install -y build-essential pip git cmake curl libgl-dev
         pip install conan
+        conan profile detect
     - name: Sonar Build Wrapper
       shell: bash
       run: |
         export CONAN_SYSREQUIRES_MODE=enabled
-        curl -L -O https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
-        unzip -q build-wrapper-linux-x86.zip
         cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
-        build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-outputs cmake --build . --target lilDevil -- -j 2
-    - name: Sonar Scanner
-      shell: bash
-      run: |
-        curl -L -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.4.0.2170-linux.zip
-        unzip sonar-scanner-cli-4.4.0.2170-linux.zip
-        sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner
+        cmake --build . --target lilDevil -- -j 2

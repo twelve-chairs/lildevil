@@ -33,8 +33,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QDialog loginDialog;
-    QLineEdit *username;
-    QLineEdit *password;
+    QLineEdit *username{};
+    QLineEdit *password{};
     QString usr;
     QString pwd;
 
@@ -46,7 +46,7 @@ private slots:
     static void cancelLogin();
 
 private:
-    void logindialog();
+    void createLoginDialog();
     QGridLayout *mainLayout;
 
 };

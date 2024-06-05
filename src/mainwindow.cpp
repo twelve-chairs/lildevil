@@ -17,12 +17,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
     setWindowTitle(tr("lilDevil"));
     statusBar()->showMessage(tr("Credentials not set!"));
 
-    logindialog();
+    createLoginDialog();
 }
 
-MainWindow::~MainWindow(){}
+MainWindow::~MainWindow()= default;
 
-void MainWindow::logindialog() {
+void MainWindow::createLoginDialog() {
     mainLayout = new QGridLayout();
 
     auto *collection = new QWidget;

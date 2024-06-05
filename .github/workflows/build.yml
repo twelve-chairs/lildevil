@@ -6,7 +6,6 @@ env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: MinSizeRel
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 jobs:
   build:
@@ -20,9 +19,6 @@ jobs:
     - name: Packages
       shell: bash
       run: |
-        sudo apt-get install -y build-essential pip git cmake curl libgl-dev
-        pip install conan
-        conan profile detect
-        export CONAN_SYSREQUIRES_MODE=enabled
+        sudo apt-get install -y build-essential spdlog_dev git cmake curl libgl-dev
         cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
         cmake --build . --target lilDevil -- -j 2

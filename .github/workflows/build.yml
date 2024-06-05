@@ -19,6 +19,6 @@ jobs:
     - name: Packages
       shell: bash
       run: |
-        sudo apt-get install -y build-essential libspdlog-dev git cmake curl libgl-dev
+        sudo apt-get install -y build-essential libspdlog-dev cmake qt5-default libgl-dev
         cmake -DCMAKE_BUILD_TYPE=MinSizeRel -G "CodeBlocks - Unix Makefiles" .
         cmake --build . --target lilDevil -- -j 2

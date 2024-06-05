@@ -19,7 +19,7 @@ endif()
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
 conan_cmake_configure(REQUIRES spdlog/1.9.2
-        qt/5.15.2
+        qt/5.15.14
         GENERATORS cmake cmake_paths cmake_find_package)
 
 conan_cmake_autodetect(settings)

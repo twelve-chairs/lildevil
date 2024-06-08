@@ -1,7 +1,8 @@
 # lilDevil
 
 [![Build](https://github.com/twelvechairssoftware/lildevil/actions/workflows/build.yml/badge.svg)](https://github.com/twelvechairssoftware/lildevil/actions/workflows/build.yml)
-[![CodeQL](https://github.com/twelve-chairs/lildevil/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/twelve-chairs/lildevil/actions/workflows/github-code-scanning/codeql)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelve-chairs_lildevil&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=twelve-chairs_lildevil)
+[![CodeQL](https://github.com/twelve-chairs/lildevil/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/twelve-chairs/lildevil/actions/workflows/github-code-scanning/codeql)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=twelve-chairs_lildevil&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=twelve-chairs_lildevil)
 ## Intro
 Cross-platform productivity workstation for developers' tools 
 
